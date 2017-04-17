@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }/*else if(getFragmentManager().getBackStackEntryCount()>0){
+            getFragmentManager().popBackStackImmediate();
+        }*/else {
             super.onBackPressed();
         }
     }
@@ -85,10 +87,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mBinaria) {
-            cargarFragmento(new FragBinario(),"Bin");
-        } /*else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+            cargarFragmento(new FragBBinario(),"Bin");
+        } else if (id == R.id.mBurbuja) {
+            cargarFragmento(new FragOBurbuja(),"Bur");
+        } /*else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
@@ -108,9 +110,17 @@ public class MainActivity extends AppCompatActivity
             Fragment actualFrag=getFragmentManager().findFragmentByTag(tag);
             fTrans=getFragmentManager().beginTransaction();
             if(actualFrag==null){
+                fTrans.add(R.id.contenido,fragmento,tag);
+                fTrans.addToBackStack(null);
+                fTrans.commit();
+                Toast.makeText(this,"creado :"+tag,Toast.LENGTH_SHORT).show();
+            }else if(actualFrag.getTag().equals(tag)){
+                fTrans.remove(actualFrag);
                 fTrans.replace(R.id.contenido,fragmento,tag);
                 fTrans.addToBackStack(null);
                 fTrans.commit();
+                Toast.makeText(this,"1 actual:"+actualFrag.getTag()+" voy a:"+tag,Toast.LENGTH_SHORT).show();
+                getFragmentManager().popBackStack();
             }
         }
     }

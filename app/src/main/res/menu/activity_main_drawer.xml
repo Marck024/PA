@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
+<item
+    android:title="Metodos de Busquedas">
+    <menu>
     <group android:checkableBehavior="single">
         <item
-
             android:id="@+id/mBinaria"
             android:icon="@android:drawable/ic_dialog_dialer"
-            android:title="Binaria"></item>
+            android:title="Metodo Binario"></item>
         <!--<item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
@@ -21,7 +22,19 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="Tools" />-->
     </group>
-
+    </menu>
+</item>
+    <item
+        android:title="Ordenamientos">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/mBurbuja"
+                    android:title="Metodo Burbuja"
+                    ></item>
+            </group>
+        </menu>
+    </item>
     <!--<item android:title="Communicate">
         <menu>
             <item

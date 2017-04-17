@@ -15,10 +15,10 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragBinario extends Fragment {
+public class FragBBinario extends Fragment {
 
 
-    public FragBinario() {
+    public FragBBinario() {
         // Required empty public constructor
     }
 
@@ -101,5 +101,6 @@ public class FragBinario extends Fragment {
         }
         return tmp2;
     }
+
 
 }
